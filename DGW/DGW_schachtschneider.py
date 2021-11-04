@@ -91,12 +91,11 @@ def run_DTW(n_trials, database_name, *shift_numbers):
     fig1 = optuna.visualization.matplotlib.plot_optimization_history(study)
     # fig2 = optuna.visualization.matplotlib.plot_intermediate_values(study): plot if pruning would be activated
     fig3 = optuna.visualization.matplotlib.plot_optimization_history(study)
-    fig4 = optuna.visualization.matplotlib.plot_intermediate_values(study)
-    fig5 = optuna.visualization.matplotlib.plot_parallel_coordinate(study)
-    fig6 = optuna.visualization.matplotlib.plot_contour(study)
-    fig7 = optuna.visualization.matplotlib.plot_slice(study)
-    fig8 = optuna.visualization.matplotlib.plot_param_importances(study)
-    fig9 = optuna.visualization.matplotlib.plot_edf(study)
+    fig4 = optuna.visualization.matplotlib.plot_parallel_coordinate(study)
+    fig5 = optuna.visualization.matplotlib.plot_contour(study)
+    fig6 = optuna.visualization.matplotlib.plot_slice(study)
+    fig7 = optuna.visualization.matplotlib.plot_param_importances(study)
+    fig8 = optuna.visualization.matplotlib.plot_edf(study)
     plt.show()
     
     # generate data and stop time for this task
