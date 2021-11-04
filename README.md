@@ -14,7 +14,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 Just go to the DGW folder and let the DGW.ipynb run in a Jupyter Notebook
 
 ```
-run_DTW(n_trials=50, database_name="default", *shift_numbers=(0,))
+run_DTW(n_trials=50, database_name="default", *shift_numbers)
 ```
 
 **Arguments**
