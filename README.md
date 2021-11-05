@@ -121,6 +121,10 @@ All codes in this repository were written by myself with exeption of the followi
 `augmentation.py`
 `helper.py`
 
+### DataIngestSchachtschneider
+
+The scripts are based on scripts of @FlorianHaslbeck 
+
 ## Citation
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
 
