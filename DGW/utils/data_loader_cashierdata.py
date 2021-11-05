@@ -49,7 +49,6 @@ def shift_dataset(preprocessed_dataset, *shift_numbers):
     :return: Dataset with the shifted dataset(s) added
     """
     to_shift_dataset = preprocessed_dataset
-    print(to_shift_dataset.shape[1])
     for shift_number in shift_numbers:
         shifted_dataset = to_shift_dataset.shift(periods=shift_number)
         shifted_dataset.columns = shifted_dataset.columns.astype(str) + "_shifted" + str(shift_number)
