@@ -3,7 +3,7 @@ import numpy as np
 from geopy.geocoders import Nominatim
 
 def ingest_raw_data(data):
-    file_df = pd.read_excel(data)
+    file_df = pd.read_csv(data)
 
     file_df['Sorte'] = file_df['Sorte'].str.replace('.', '').str.replace('Ä', 'Ae').str.replace('ä', 'ae')\
         .str.replace('Ö', 'Oe').str.replace('ö', 'oe').str.replace('Ü', 'Ue').str.replace('ü', 'ue')\
