@@ -9,7 +9,7 @@ def test_samples(database_name="default", print_data=False):
     """
     evaluates the fake data of the model
     :param database_name: name of the project
-    :param print_data: weather to print the fake dataset or not
+    :param print_data: weather to print the test and fake dataset or not
     """
     # loads test and fake data
     test, fake = load_data('/Josef/DTW/test_data.csv', '/Josef/DTW/fake_data_' + database_name + '.csv')
