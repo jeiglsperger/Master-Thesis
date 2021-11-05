@@ -107,7 +107,7 @@ def run_DTW(n_trials, database_name, *shift_numbers):
 
     # postprocessing
     fake_data = postprocess_data("eval", generated_data, columns, num_columns_cat, database_name, *shift_numbers)
-    fake_data.to_csv('/Josef/DTW/time_series_augmentation/fake_data_' + database_name + '.csv', index=False)
+    fake_data.to_csv('/Josef/DTW/fake_data_' + database_name + '.csv', index=False)
     
     
 if __name__ == '__main__':
