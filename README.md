@@ -75,6 +75,53 @@ test_samples(database_name="default", print_data=True)
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+4. Return to step 2. 
+
+### CTGAN
+
+1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata and CTGAN_schachtschneider.py can be found
+2. Run the optimization of CTGAN with
+
+    ```
+    python3 CTGAN_schachtschneider -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+  
+    or 
     
+    ```
+    python3 CTGAN_schachtschneider  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+    
+    **Arguments**
+    
+    **num_samples** : *int*
+    > Number of fake samples that should be generated.
+    
+    **n_trials** : *int*
+    > Number of optimization trials.
+    
+    **database_name** : *str*
+    > Name of the project.
+
+    **shift_numbers** : *int*
+    > Number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative.
+    
+    **Returns**
+    
+    *Dataframe and .txt-file*
+    > Fake data in a Dataframe and performance measures.
+
+## Contribution
+
+All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
+
+### DGW
+
+`augmentation.py`
+`helper.py`
+
 ## Citation
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
+
+**CTGAN**: Xu, Lei; Skoularidou, Maria; Cuesta-Infante, Alfredo; Veeramachaneni, Kalyan (2019): Modeling Tabular data using Conditional GAN. In H. Wallach, H. Larochelle, A. Beygelzimer, F. Alché-Buc, E. Fox, R. Garnett (Eds.): Advances in Neural Information Processing Systems, vol. 32: Curran Associates, Inc. Available online at https://proceedings.neurips.cc/paper/2019/file/254ed7d2de3b23ab10936522dd547b78-Paper.pdf.
