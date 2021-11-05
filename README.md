@@ -11,7 +11,7 @@ All codes used for my master thesis
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 #### CashierData
-Just go to the DGW folder and let the DGW.ipynb run in a Jupyter Notebook
+Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook
 
 ```
 run_DTW(n_trials=50, database_name="default", *shift_numbers)
@@ -32,6 +32,25 @@ run_DTW(n_trials=50, database_name="default", *shift_numbers)
 
 *Dataframe and .txt-file*
 > Fake data in a Dataframe and performance measures.
+
+To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook
+
+```
+test_samples(database_name="default", print_data=True)
+```
+
+**Arguments**
+
+**database_name** : *str*
+> Name that the project should have.
+
+**print_data** : *bool*
+> Weather to print the test and fake dataset or not.
+
+**Returns**
+
+*Plots and texts in sdtout*
+> Visual and statistical evaluation of the fake data compared to the real test data.
 
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found
