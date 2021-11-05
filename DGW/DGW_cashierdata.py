@@ -5,7 +5,7 @@ import utils.datasets as ds
 import utils.augmentation as aug
 import utils.helper as hlp
 import matplotlib.pyplot as plt
-from utils.data_loader import real_data_loading, postprocess_data
+from utils.data_loader_cashierdata import real_data_loading, postprocess_data
 from sdv.evaluation import evaluate
 import optuna
 import time
