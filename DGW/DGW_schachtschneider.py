@@ -30,7 +30,7 @@ def prepare_train_data(database_name, *shift_numbers):
 
 
 def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers):
-        """
+    """
     Objective function for hyperparameter optimization with optuna
     :param trail: current optimization trial
     :param x_train: training data
