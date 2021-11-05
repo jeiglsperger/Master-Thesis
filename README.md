@@ -93,7 +93,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
 ### CTGAN
-1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata and CTGAN_schachtschneider.py can be found
+1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found
 2. Run the optimization of CTGAN with
 
     ```
@@ -107,6 +107,72 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     ```
     
     **Arguments**
+    
+    **num_samples** : *int*
+    > Number of fake samples that should be generated.
+    
+    **n_trials** : *int*
+    > Number of optimization trials.
+    
+    **database_name** : *str*
+    > Name of the project.
+
+    **shift_numbers** : *int*
+    > Number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative.
+    
+    **Returns**
+    
+    *Dataframe and .txt-file*
+    > Fake data in a Dataframe and performance measures.
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+4. Return to step 2. 
+### timeGAN
+1. Open a Terminal and navigate to the directory in which timeGAN_opt_seq_len_cashierdata.py, timeGAN_year_cashierdata.py, timeGAN_opt_seq_len_schachtschneider.py and timeGAN_year_schachtschneider.py can be found
+2. Run the optimization of timeGAN with
+
+    ```
+    python3 timeGAN_opt_seq_len_cashierdata.py -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+    
+    or
+
+    ```
+    python3 timeGAN_opt_seq_len_schachtschneider.py -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+
+    **Arguments**
+    
+    **num_samples** : *int*
+    > Number of fake samples that should be generated.
+    
+    **n_trials** : *int*
+    > Number of optimization trials.
+    
+    **database_name** : *str*
+    > Name of the project.
+
+    **shift_numbers** : *int*
+    > Number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative.
+    
+    **Returns**
+    
+    *Dataframe and .txt-file*
+    > Fake data in a Dataframe and performance measures.
+
+    ```
+    python3  timeGAN_year_cashierdata.py -seq_len 500  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+    
+    or 
+    
+    ```
+    python3  timeGAN_year_schachtschneider.pyy -seq_len 500  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```
+    
+    **Arguments**
+    
+    **seq_len** : *int*
+    > Sequence length.
     
     **num_samples** : *int*
     > Number of fake samples that should be generated.
