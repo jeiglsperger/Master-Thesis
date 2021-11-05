@@ -47,7 +47,7 @@ def add_externals():
     imputed_df = pd.DataFrame(imputer.fit_transform(df))
     imputed_df.columns = df.columns
     imputed_df.index = df.index        
-    imputed_df.to_csv('Schachtschneider_externals.csv')
+    imputed_df.to_csv('Schachtschneider.csv')
     
     
 if __name__ == '__main__':
