@@ -8,7 +8,7 @@ import warnings
 import time
 import optuna
 from timegan import timegan
-from own_data_loading import real_data_loading, preprocess_data, cut_data
+from own_data_loading_cashierdata import real_data_loading, preprocess_data, cut_data
 from metrics.discriminative_metrics import discriminative_score_metrics
 from metrics.predictive_metrics import predictive_score_metrics
 from metrics.visualization_metrics import visualization
