@@ -12,7 +12,7 @@ def test_samples(database_name, print_data=False):
     :param print_data: weather to print the fake dataset or not
     """
     # loads test and fake data
-    test, fake = load_data('/JOsef/DTW/test_data_schachtschneider.csv', '/JOsef/DTW/fake_data_' + database_name + '.csv')
+    test, fake = load_data('/Josef/DTW/test_data_schachtschneider.csv', '/Josef/DTW/fake_data_' + database_name + '.csv')
     
     # prints test and real data if flag print_data is set to true
     with pd.option_context('display.max_columns', None):
