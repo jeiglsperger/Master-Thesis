@@ -48,7 +48,6 @@ def shift_dataset(preprocessed_dataset, *shift_numbers):
     :param shift_numbers: number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative
     :return: Dataset with the shifted dataset(s) added
     """
-    # shift dataset
     to_shift_dataset = preprocessed_dataset
     print(to_shift_dataset.shape[1])
     for shift_number in shift_numbers:
