@@ -330,14 +330,14 @@ sum_df_2019_2020 = ingest_raw_data("Rechnungsübersicht 2019-2020.xlsx")
 df = pd.concat([sum_df_2001_2007, sum_df_2008_2013, sum_df_2014_2018, sum_df_2019_2020])
 sum_df = df.pivot_table(values='Gesamtpreis', index='Auf. Datum', columns='Sorte', fill_value=0, aggfunc=np.sum)
 sum_df = sum_df.loc[:, (sum_df != 0).any(axis=0)]
-sum_df.to_csv("Schachtschneider_new.csv")
+sum_df.to_csv("Schachtschneider.csv")
 
 """
 The ingestion was splitted into two scripts to reduce computation time. The following is the second script. For better 
 overview in put both in one script.
 """
 
-file_df = pd.read_csv("Schachtschneider_further.csv")
+file_df = pd.read_csv("Schachtschneider.csv")
 
 file_df = file_df.set_index('Auf. Datum')
 
@@ -530,5 +530,5 @@ idx = pd.date_range('2001-01-11', '28.10.2020')
 
 file_df = file_df.reindex(idx)
 file_df.index.name = "Auf. Datum"
-print(file_df.columns)
-file_df.to_csv("Schachtschneider_further.csv")
+
+file_df.to_csv("Schachtschneider.csv")
