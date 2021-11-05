@@ -133,6 +133,8 @@ The scripts are based on scripts of @FlorianHaslbeck
 ### DGW
 `augmentation.py`
 `helper.py`
+### timeGAN
+`timegan.py`
 ## Citation
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
 
