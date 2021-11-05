@@ -7,7 +7,16 @@ All codes used for my master thesis
     ```
     git clone https://github.com/Zepp3/Master-Thesis
     ```
-    
+
+### DataIngestSchachtschneider
+1. It is possible to download and locally run `DataIngest_Schachtschneider.py` in PyCharm for example.
+2. Open a Terminal and navigate to the directory in which add_externals.py can be found
+3. Add external data with
+
+    ```
+    python3 add_externals
+    ```
+
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 #### CashierData
@@ -51,6 +60,8 @@ test_samples(database_name="default", print_data=True)
 
 *Plots and texts in sdtout*
 > Visual and statistical evaluation of the fake data compared to the real test data.
+
+If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found
@@ -111,19 +122,21 @@ test_samples(database_name="default", print_data=True)
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+4. Return to step 2. 
 
 ## Contribution
 
 All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
 
+### DataIngestSchachtschneider
+
+The scripts are based on scripts of @FlorianHaslbeck 
+
 ### DGW
 
 `augmentation.py`
 `helper.py`
-
-### DataIngestSchachtschneider
-
-The scripts are based on scripts of @FlorianHaslbeck 
 
 ## Citation
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
