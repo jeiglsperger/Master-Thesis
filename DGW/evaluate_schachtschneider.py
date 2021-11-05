@@ -5,7 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-def test_samples(database_name, print_data=False):
+def test_samples(database_name="default", print_data=False):
     """
     evaluates the fake data of the model
     :param database_name: name of the project
