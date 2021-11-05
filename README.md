@@ -10,59 +10,63 @@ All codes used for my master thesis
 
 ### DataIngestSchachtschneider
 1. It is possible to download and locally run `DataIngest_Schachtschneider.py` in PyCharm for example.
-2. Open a Terminal and navigate to the directory in which add_externals.py can be found
-3. Add external data with
+2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+3. Return to step 1
+4. Open a Terminal and navigate to the directory in which add_externals.py can be found
+5. Add external data with
 
     ```
     python3 add_externals
     ```
+    
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+7. Return to step 5
 
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 #### CashierData
-Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook
+1. Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook
 
-```
-run_DTW(n_trials=50, database_name="default", *shift_numbers)
-```
+    ```
+    run_DTW(n_trials=50, database_name="default", *shift_numbers)
+    ```
 
-**Arguments**
+    **Arguments**
 
-**n_trials** : *int*
-> Number of trials the optimization should run.
+    **n_trials** : *int*
+    > Number of trials the optimization should run.
 
-**database_name** : *str*
-> Name that the project should have.
+    **database_name** : *str*
+    > Name that the project should have.
 
-**shift_numbers** : *int*
-> Number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative.
+    **shift_numbers** : *int*
+    > Number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative.
 
-**Returns**
+    **Returns**
 
-*Dataframe and .txt-file*
-> Fake data in a Dataframe and performance measures.
+    *Dataframe and .txt-file*
+    > Fake data in a Dataframe and performance measures.
+2. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook
 
-To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook
+    ```
+    test_samples(database_name="default", print_data=True)
+    ```
 
-```
-test_samples(database_name="default", print_data=True)
-```
+    **Arguments**
 
-**Arguments**
+    **database_name** : *str*
+    > Name that the project should have.
 
-**database_name** : *str*
-> Name that the project should have.
+    **print_data** : *bool*
+    > Weather to print the test and fake dataset or not.
 
-**print_data** : *bool*
-> Weather to print the test and fake dataset or not.
+    **Returns**
 
-**Returns**
+    *Plots and texts in sdtout*
+    > Visual and statistical evaluation of the fake data compared to the real test data.
 
-*Plots and texts in sdtout*
-> Visual and statistical evaluation of the fake data compared to the real test data.
-
-If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
-
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+4. Return to step 2. 
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found
 2. Run the optimization of DGW with the Schachtschneider dataset
@@ -88,9 +92,7 @@ If `ModuleNotFoundError: No module named 'package'` occurs, install these missin
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
-
 ### CTGAN
-
 1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata and CTGAN_schachtschneider.py can be found
 2. Run the optimization of CTGAN with
 
@@ -124,20 +126,13 @@ If `ModuleNotFoundError: No module named 'package'` occurs, install these missin
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
-
 ## Contribution
-
 All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
-
 ### DataIngestSchachtschneider
-
 The scripts are based on scripts of @FlorianHaslbeck 
-
 ### DGW
-
 `augmentation.py`
 `helper.py`
-
 ## Citation
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
 
