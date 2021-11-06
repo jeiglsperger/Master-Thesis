@@ -58,7 +58,7 @@ def real_data_loading(database_name, *shift_numbers):
     
     # test-train-split
     dataset, dataset_test, = train_test_split(dataset_raw, test_size=0.2, random_state=42, shuffle=False)
-    dataset_test.to_csv('/Josef/DTW/time_series_augmentation/test_data_schachtschneider.csv', index=False)
+    dataset_test.to_csv('test_data_schachtschneider.csv', index=False)
     dataset_train, dataset_val = train_test_split(dataset, test_size=0.25, random_state=42, shuffle=False)
     
     # delete columns that can be derived from others
