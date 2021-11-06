@@ -1,7 +1,5 @@
 import numpy as np
 import os
-from utils.input_data import read_data_sets
-import utils.datasets as ds
 import utils.augmentation as aug
 import utils.helper as hlp
 import matplotlib.pyplot as plt
@@ -64,7 +62,7 @@ def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, da
     return scores
 
 
-def run_DTW(n_trials=50, database_name="default", *shift_numbers=(0,)):
+def run_DTW(n_trials=50, database_name="default", *shift_numbers):
     """
     Run DTW
     :param n_trials: number of optimization trials
