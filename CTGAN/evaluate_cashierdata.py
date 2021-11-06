@@ -21,7 +21,7 @@ def test_samples(database_name="default", print_data=False):
         if print_data:
             print(test)
             
-    cat_cols = ["total_prec_flag", "public_holiday", "school_holiday", "weekday", "quarter"]
+    cat_cols = ["total_prec_flag", "public_holiday", "school_holiday", "weekday"]
     table_evaluator = TableEvaluator(test, fake, cat_cols=cat_cols)
     # prints visual evaluation of the table evaluator
     table_evaluator.visual_evaluation()
