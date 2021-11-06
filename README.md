@@ -260,7 +260,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 ## Contribution
 All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
 ### DataIngestSchachtschneider
-The scripts are based on scripts of @FlorianHaslbeck 
+The scripts are based on scripts of [Florian Haslbeck](https://bit.cs.tum.de/team/florian-haselbeck/)
 ### DGW
 `augmentation.py`, `helper.py`
 ### timeGAN
