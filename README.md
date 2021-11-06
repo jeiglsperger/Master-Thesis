@@ -16,7 +16,7 @@ All codes used for my master thesis.
 5. Add external data with
 
     ```
-    python3 add_externals
+    python3 add_externals.py
     ```
     
 6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
@@ -68,13 +68,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
 5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 2. 
+6. Return to step 4. 
 #### Schachtschneider
-1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found
-2. Run the optimization of DGW with the Schachtschneider dataset
+1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found.
+2. Run the optimization of DGW with the Schachtschneider dataset.
 
     ```
-    python3 DGW_schachtschneider -n_trials 50 -database_name DGW_default -shift_numbers 0
+    python3 DGW_schachtschneider.py -n_trials 50 -database_name DGW_default -shift_numbers 0
     ```
     
     **Arguments**
@@ -92,8 +92,29 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2. 
+5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+
+    ```
+    test_samples(database_name="default", print_data=True)
+    ```
+
+    **Arguments**
+
+    **database_name** : *str*
+    > Name that the project should have.
+
+    **print_data** : *bool*
+    > Weather to print the test and fake dataset or not.
+
+    **Returns**
+
+    *Plots and texts in sdtout*
+    > Visual and statistical evaluation of the fake data compared to the real test data.
+
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 4. 
 ### CTGAN
 1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found
 2. Run the optimization of CTGAN with
