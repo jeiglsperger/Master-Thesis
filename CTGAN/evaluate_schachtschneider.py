@@ -11,7 +11,7 @@ def test_samples(database_name="default", print_data=False):
     :param print_data: weather to print the fake dataset or not
     """
     # loads test and fake data
-    test, fake = load_data('/JOsef/CTGAN/test_data_schachtschneider.csv', '/JOsef/CTGAN/fake_data_' + database_name + '.csv')
+    test, fake = load_data('test_data_schachtschneider.csv', 'fake_data_' + database_name + '.csv')
     
     # prints test and real data if flag print_data is set to true
     with pd.option_context('display.max_columns', None):
@@ -21,12 +21,12 @@ def test_samples(database_name="default", print_data=False):
         if print_data:
             print(test)
             
-    cat_cols = ["total_prec_flag", "public_holiday", "school_holiday", "weekday", "quarter"]
+    cat_cols = ["public_holiday", "weekday"]
     table_evaluator = TableEvaluator(test, fake, cat_cols=cat_cols)
     # prints visual evaluation of the table evaluator
     table_evaluator.visual_evaluation()
     # print statistical evaluation of the table evaluator
-    table_evaluator.evaluate(target_col='CutFlowers', target_type='regr')
+    table_evaluator.evaluate(target_col='Lavandula', target_type='regr')
     
     # print the calculation values of the similarity score of the sdv evaluation tool
     print(evaluate(fake, test, aggregate=False))
