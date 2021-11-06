@@ -11,7 +11,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("/Josef/TimeGAN/data/CashierData.csv", sep=';', decimal=',')
+    dataset_raw = pd.read_csv("data/CashierData.csv", sep=';', decimal=',')
 
     dataset_raw["Date"] = pd.to_datetime(dataset_raw["Date"], format='%Y-%m-%d')
 
@@ -72,7 +72,7 @@ def real_data_loading():
 
     # test-train-split
     dataset, dataset_test = train_test_split(imputed_dataset, test_size=0.2, random_state=42, shuffle=False)
-    dataset_test.to_csv('/Josef/TimeGAN/test_data.csv', index=False)
+    dataset_test.to_csv('test_data_cashierdata.csv', index=False)
         
     return dataset
 
