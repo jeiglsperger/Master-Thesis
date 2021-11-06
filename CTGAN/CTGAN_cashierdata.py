@@ -29,7 +29,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday and then removes dates
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("/Josef/CTGAN/Data/CashierData.csv", sep=';', decimal=',')
+    dataset_raw = pd.read_csv("CashierData.csv", sep=';', decimal=',')
     
     dataset_raw["Date"] = pd.to_datetime(dataset_raw["Date"], format='%Y-%m-%d')
     dataset_raw['quarter'] = dataset_raw['Date'].dt.quarter
@@ -91,7 +91,7 @@ def preprocess_dataset(*shift_numbers):
     dataset, dataset_test = train_test_split(dataset, test_size=0.2, random_state=42, shuffle=False)
     dataset_train, dataset_val = train_test_split(dataset, test_size=0.25, random_state=42, shuffle=False)
 
-    dataset_test.to_csv('/Josef/CTGAN/test_data.csv', index=False)
+    dataset_test.to_csv('test_data_cashierdata.csv', index=False)
 
     # delete columns that can be derived from others
     dataset_train = dataset_train.drop(columns=["total_prec_height_mm", "total_sun_dur_h", "total_prec_flag"])
@@ -227,7 +227,7 @@ def run_CTGAN(num_samples: int, n_trials: int, database_name, *shift_numbers):
 
     # optimize hyperparameters
     study = optuna.create_study(storage=optuna.storages.RDBStorage("sqlite:///" + database_name + ".db"), 
-                                study_name = database_name + "_study", direction="maximize", load_if_exists=True)  # maybe use GP
+                                study_name = database_name + "_study", direction="maximize", load_if_exists=True)
     study.optimize(lambda trial: objective(trial, preprocessed_dataset, dataset_val, num_samples, database_name, *shift_numbers), n_trials)
 
     # save performance parameters
@@ -264,7 +264,7 @@ def run_CTGAN(num_samples: int, n_trials: int, database_name, *shift_numbers):
 
     # postprocessing
     fake_data = postprocess_dataset("eval", samples, *shift_numbers)
-    fake_data.to_csv('/Josef/CTGAN/fake_data_' + database_name + '.csv', index=False)
+    fake_data.to_csv('fake_data_' + database_name + '.csv', index=False)
     
 
 if __name__ == '__main__':
