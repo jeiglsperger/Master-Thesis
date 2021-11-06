@@ -149,7 +149,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2.
-5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+5. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -236,7 +236,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
-5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+5. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
 
     ```
     test_samples(database_name="default", print_data=True)
