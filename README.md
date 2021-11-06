@@ -269,6 +269,6 @@ The scripts are based on scripts of [Florian Haslbeck](https://bit.cs.tum.de/tea
 **CTGAN**: Xu, Lei; Skoularidou, Maria; Cuesta-Infante, Alfredo; Veeramachaneni, Kalyan (2019): Modeling Tabular data using Conditional GAN. In H. Wallach, H. Larochelle, A. Beygelzimer, F. Alché-Buc, E. Fox, R. Garnett (Eds.): Advances in Neural Information Processing Systems, vol. 32: Curran Associates, Inc. Available online at https://proceedings.neurips.cc/paper/2019/file/254ed7d2de3b23ab10936522dd547b78-Paper.pdf.
 
 **DGW**: Iwana, Brian Kenji; Uchida, Seiichi (2020): Time Series Data Augmentation for Neural Networks by Time Warping with a Discriminative Teacher. Available online at http://arxiv.org/pdf/2004.08780v1.
-**timeGAN**
 
+**timeGAN**
 Yoon, Jinsung; Jarrett, Daniel; van der Schaar, Mihaela (2019): Time-series Generative Adversarial Networks. In H. Wallach, H. Larochelle, A. Beygelzimer, F. Alché-Buc, E. Fox, R. Garnett (Eds.): Advances in Neural Information Processing Systems, vol. 32: Curran Associates, Inc. Available online at https://proceedings.neurips.cc/paper/2019/file/c9efe5f26cd17ba6216bbe2a7d26d490-Paper.pdf.
