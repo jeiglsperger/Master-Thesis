@@ -9,9 +9,6 @@ import time
 import optuna
 from timegan import timegan
 from own_data_loading_cashierdata import real_data_loading, preprocess_data, cut_data
-from metrics.discriminative_metrics import discriminative_score_metrics
-from metrics.predictive_metrics import predictive_score_metrics
-from metrics.visualization_metrics import visualization
 from sdv.evaluation import evaluate
 from table_evaluator import load_data, TableEvaluator
 import argparse
@@ -173,7 +170,7 @@ def run_TimeGAN(seq_len, num_samples, n_trials, database_name, *shift_numbers):
     # postprocessing
     fake_data = postprocess_data("eval", generated_data, columns, num_columns_cat, seq_len, *shift_numbers)
 
-    fake_data.to_csv('/Josef/TimeGAN/fake_data_' + database_name + '.csv', index=False)
+    fake_data.to_csv('fake_data_' + database_name + '.csv', index=False)
 
 
 if __name__ == '__main__':
