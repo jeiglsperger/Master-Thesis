@@ -13,7 +13,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday and then removes dates
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("/Josef/DTW/data/Schachtschneider_externals_cut.csv", sep=',', decimal='.')
+    dataset_raw = pd.read_csv("data/Schachtschneider_externals_cut.csv", sep=',', decimal='.')
 
     dataset_raw["Auf. Datum"] = pd.to_datetime(dataset_raw["Auf. Datum"], format='%Y-%m-%d')
     # school holidays are not available for the time span of the dataset
