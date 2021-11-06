@@ -5,7 +5,7 @@ from sdv.evaluation import evaluate
 
 def test_samples(database_name, print_data=False):
 
-    test, fake = load_data('/JOsef/TimeGAN/test_data.csv', '/JOsef/TimeGAN/fake_data_' + database_name + '.csv')
+    test, fake = load_data('test_data_cashierdata.csv', 'fake_data_' + database_name + '.csv')
     
     with pd.option_context('display.max_columns', None):
         if print_data:
