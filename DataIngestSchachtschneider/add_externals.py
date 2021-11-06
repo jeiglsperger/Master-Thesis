@@ -1,7 +1,7 @@
 import pandas as pd
 from geopy.geocoders import Nominatim
 from tqdm import tqdm
-import IngestHelper, WeatherIngest, CalendarIngest
+import WeatherIngest, CalendarIngest
 from sklearn.impute import SimpleImputer
 import numpy as np
 
@@ -15,7 +15,7 @@ def add_externals():
     federal_state = 'NI'
     
     
-    df = pd.DataFrame(pd.read_csv('Schachtschneider_further.csv', header=0))
+    df = pd.DataFrame(pd.read_csv('Schachtschneider.csv', header=0))
     
     
     print("----- Adding external data -----")
