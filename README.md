@@ -1,8 +1,8 @@
 # Master-Thesis
-All codes used for my master thesis
+All codes used for my master thesis.
 ## Setup and Operation
-1. Open a Terminal and navigate to the directory where the algorithms should be
-2. Clone this repository (as soon as it's public)
+1. Open a Terminal and navigate to the directory where the algorithms should be.
+2. Clone this repository.
 
     ```
     git clone https://github.com/Zepp3/Master-Thesis
@@ -10,22 +10,22 @@ All codes used for my master thesis
 
 ### DataIngestSchachtschneider
 1. It is possible to download and locally run `DataIngest_Schachtschneider.py` in PyCharm for example.
-2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
-3. Return to step 1
-4. Open a Terminal and navigate to the directory in which add_externals.py can be found
+2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+3. Return to step 1.
+4. Open a Terminal and navigate to the directory in which add_externals.py can be found.
 5. Add external data with
 
     ```
     python3 add_externals
     ```
     
-6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
-7. Return to step 5
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5.
 
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 #### CashierData
-1. Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook
+1. Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook.
 
     ```
     run_DTW(n_trials=50, database_name="default", *shift_numbers)
@@ -46,7 +46,9 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-2. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook
+2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+3. Return to step 1.
+4. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -65,8 +67,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
-4. Return to step 2. 
+5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+6. Return to step 2. 
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found
 2. Run the optimization of DGW with the Schachtschneider dataset
