@@ -120,13 +120,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 2. Run the optimization of CTGAN with
 
     ```
-    python3 CTGAN_schachtschneider -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    python3 CTGAN_schachtschneider.py -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
     ```
   
     or 
     
     ```
-    python3 CTGAN_schachtschneider  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    python3 CTGAN_schachtschneider.py  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
     ```
     
     **Arguments**
@@ -189,7 +189,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     or 
     
     ```
-    python3  timeGAN_year_schachtschneider.pyy -seq_len 500  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    python3  timeGAN_year_schachtschneider.py -seq_len 500  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
     ```
     
     **Arguments**
