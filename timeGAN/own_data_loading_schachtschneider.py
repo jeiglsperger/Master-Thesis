@@ -12,7 +12,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("/Josef/TimeGAN/data/schachtschneider.csv", sep=',', decimal='.')
+    dataset_raw = pd.read_csv("data/schachtschneider.csv", sep=',', decimal='.')
     
     dataset_raw = dataset_raw.drop(columns=["school_holiday"])
     
@@ -56,7 +56,7 @@ def real_data_loading():
 
     # test-train-split
     dataset, dataset_test = train_test_split(dataset_done, test_size=0.2, random_state=42, shuffle=False)
-    dataset_test.to_csv('/Josef/TimeGAN/test_data_schachtschneider.csv', index=False)
+    dataset_test.to_csv('test_data_schachtschneider.csv', index=False)
         
     return dataset
 
