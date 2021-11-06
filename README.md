@@ -148,7 +148,28 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
-4. Return to step 2. 
+4. Return to step 2.
+5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+
+    ```
+    test_samples(database_name="default", print_data=True)
+    ```
+
+    **Arguments**
+
+    **database_name** : *str*
+    > Name that the project should have.
+
+    **print_data** : *bool*
+    > Weather to print the test and fake dataset or not.
+
+    **Returns**
+
+    *Plots and texts in sdtout*
+    > Visual and statistical evaluation of the fake data compared to the real test data.
+
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5.  
 ### timeGAN
 1. Open a Terminal and navigate to the directory in which `timeGAN_opt_seq_len_cashierdata.py`, `timeGAN_year_cashierdata.py`, `timeGAN_opt_seq_len_schachtschneider.py` and `timeGAN_year_schachtschneider.py` can be found
 2. Run the optimization of timeGAN with
@@ -215,6 +236,27 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
+5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+
+    ```
+    test_samples(database_name="default", print_data=True)
+    ```
+
+    **Arguments**
+
+    **database_name** : *str*
+    > Name that the project should have.
+
+    **print_data** : *bool*
+    > Weather to print the test and fake dataset or not.
+
+    **Returns**
+
+    *Plots and texts in sdtout*
+    > Visual and statistical evaluation of the fake data compared to the real test data.
+
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5. 
 ## Contribution
 All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
 ### DataIngestSchachtschneider
