@@ -150,7 +150,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
 ### timeGAN
-1. Open a Terminal and navigate to the directory in which timeGAN_opt_seq_len_cashierdata.py, timeGAN_year_cashierdata.py, timeGAN_opt_seq_len_schachtschneider.py and timeGAN_year_schachtschneider.py can be found
+1. Open a Terminal and navigate to the directory in which `timeGAN_opt_seq_len_cashierdata.py`, `timeGAN_year_cashierdata.py`, `timeGAN_opt_seq_len_schachtschneider.py` and `timeGAN_year_schachtschneider.py` can be found
 2. Run the optimization of timeGAN with
 
     ```
