@@ -214,12 +214,11 @@ def run_CTGAN(num_samples: int, n_trials: int, database_name, *shift_numbers):
     #plots of optuna optimization
     fig1 = optuna.visualization.matplotlib.plot_optimization_history(study)
     # fig2 = optuna.visualization.matplotlib.plot_intermediate_values(study)  # That's for pruning
-    fig3 = optuna.visualization.matplotlib.plot_optimization_history(study)
-    fig4 = optuna.visualization.matplotlib.plot_parallel_coordinate(study)
-    fig5 = optuna.visualization.matplotlib.plot_contour(study)
-    fig6 = optuna.visualization.matplotlib.plot_slice(study)
-    fig7 = optuna.visualization.matplotlib.plot_param_importances(study)
-    fig8 = optuna.visualization.matplotlib.plot_edf(study)
+    fig3 = optuna.visualization.matplotlib.plot_parallel_coordinate(study)
+    fig4 = optuna.visualization.matplotlib.plot_contour(study)
+    fig5 = optuna.visualization.matplotlib.plot_slice(study)
+    fig6 = optuna.visualization.matplotlib.plot_param_importances(study)
+    fig7 = optuna.visualization.matplotlib.plot_edf(study)
     plt.show()
 
     # load best model
