@@ -138,7 +138,7 @@ def run_TimeGAN(seq_len, num_samples, n_trials, database_name, *shift_numbers):
     
     # optimize hyperparameters
     study = optuna.create_study(storage=optuna.storages.RDBStorage("sqlite:///" + database_name + ".db"), 
-                                study_name = database_name + "_study_test", direction="maximize", load_if_exists=True)  # maybe use GP
+                                study_name = database_name + "_study", direction="maximize", load_if_exists=True)  # maybe use GP
     study.optimize(lambda trial: objective(trial, dataset_train, dataset_val, num_samples, columns, num_columns_cat, database_name, seq_len, *shift_numbers), n_trials)
 
     # save performance parameters
