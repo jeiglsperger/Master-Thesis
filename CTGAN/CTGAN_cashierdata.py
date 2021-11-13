@@ -253,6 +253,11 @@ def run_CTGAN(num_samples: int, n_trials: int, database_name, *shift_numbers):
         'school_holiday',
         'weekday',
         'quarter']
+    if shift_numbers != (0,):
+        for shift_number in shift_numbers:
+            discrete_columns.append('public_holiday_shifted' + str(shift_number))
+            discrete_columns.append('school_holiday_shifted' + str(shift_number))
+            discrete_columns.append('weekday_shifted' + str(shift_number))
     
     # generate data and stop time for this task
     start_time = time.time()
