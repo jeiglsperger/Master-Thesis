@@ -29,7 +29,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday and then removes dates
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("CashierData.csv", sep=';', decimal=',')
+    dataset_raw = pd.read_csv("Data/CashierData.csv", sep=';', decimal=',')
     
     dataset_raw["Date"] = pd.to_datetime(dataset_raw["Date"], format='%Y-%m-%d')
     dataset_raw['quarter'] = dataset_raw['Date'].dt.quarter
