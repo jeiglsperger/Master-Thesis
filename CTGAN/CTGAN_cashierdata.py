@@ -159,12 +159,28 @@ def objective(trial, preprocessed_dataset, dataset_val, num_samples, database_na
     """    
     if trial.number == 100:
         trial.study.stop()
-    
+     
     # hyperparameters
     embedding_dim = trial.suggest_categorical("embedding_dim", [8, 16, 32, 64, 128])
-    generator_dim = trial.suggest_categorical("generator_dim", [(16, 16), (32, 32), (64, 64), (128, 128), (256, 256)])
-    discriminator_dim = trial.suggest_categorical("discriminator_dim",
-                                                  [(16, 16), (32, 32), (64, 64), (128, 128), (256, 256), (512, 512)])
+    generator_dims_dict = {
+      "16, 16": (16, 16), 
+      "32, 32": (32, 32), 
+      "64, 64": (64, 64), 
+      "128, 128": (128, 128), 
+      "256, 256": (256, 256)
+    }
+    generator_dims_key = trial.suggest_categorical("generator_dims_key", ["16, 16", "32, 32", "64, 64", "128, 128", "256, 256"])
+    generator_dim = generator_dims_dict[generator_dims_key]
+    discriminator_dims_dict = {
+      "16, 16": (16, 16), 
+      "32, 32": (32, 32), 
+      "64, 64": (64, 64), 
+      "128, 128": (128, 128), 
+      "256, 256": (256, 256),
+      "512, 512": (512, 512)
+    }
+    discriminator_dims_key = trial.suggest_categorical("discriminator_dims_key", ["16, 16", "32, 32", "64, 64", "128, 128", "256, 256", "512, 512"])
+    discriminator_dim = discriminator_dims_dict[discriminator_dims_key]
     generator_lr = trial.suggest_categorical("generator_lr", [0.5, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5])
     generator_decay = trial.suggest_categorical("generator_decay", [1e-6, 1e-7, 1e-8, 1e-9, 1e-10])
     discriminator_lr = trial.suggest_categorical("discriminator_lr", [0.5, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5])
