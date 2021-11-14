@@ -29,7 +29,7 @@ def load_datasets():
     Loads the dataset; adds date, quarter and weekday and then removes dates
     :return: raw dataset
     """
-    dataset_raw = pd.read_csv("Schachtschneider.csv", sep=',', decimal='.')
+    dataset_raw = pd.read_csv("Data/Schachtschneider.csv", sep=',', decimal='.')
     
     dataset_raw["Auf. Datum"] = pd.to_datetime(dataset_raw["Auf. Datum"], format='%Y-%m-%d')
     dataset_raw = dataset_raw.drop(columns=["school_holiday"])
