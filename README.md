@@ -129,6 +129,12 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     python3 CTGAN_schachtschneider.py  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
     ```
     
+    or 
+    
+    ```
+    python3 CTGAN_MonthlyMilkProduction.py  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```    
+    
     **Arguments**
     
     **num_samples** : *int*
