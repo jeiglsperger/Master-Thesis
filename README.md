@@ -51,6 +51,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 6. Return to step 1.
+
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found.
 2. Run the optimization of DGW with the Schachtschneider dataset.
@@ -76,7 +77,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2. 
-####Test the similarity of the fake data to the real data of DGW
+
+#### Test the similarity of the fake data to the real data of DGW
 1. Just go to the DGW folder.
 2. Open the `test_samples.ipynb` or in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction` or `from evaluate_schachtschneider`
