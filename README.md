@@ -24,8 +24,8 @@ All codes used for my master thesis.
 
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
-#### CashierData
-1. Just go to the DGW folder and let the `DGW.ipynb` run in a Jupyter Notebook.
+#### CashierData, MonthlyMilkProduction
+1. Just go to the DGW folder, open `DGW.ipynb` in a Jupyter Notebook, import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` and let it run.
 
     ```
     run_DTW(n_trials=50, database_name="default", *shift_numbers)
@@ -48,7 +48,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 3. Return to step 1.
-4. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` in a Jupyter Notebook.
+4. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_MonthlyMilkProduction.ipynb` in a Jupyter Notebook.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -57,7 +57,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     **Arguments**
 
     **database_name** : *str*
-    > Name that the project should have.
+    > Name of the project that you want to evaluate.
 
     **print_data** : *bool*
     > Weather to print the test and fake dataset or not.
