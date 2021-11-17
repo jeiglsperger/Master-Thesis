@@ -25,7 +25,10 @@ All codes used for my master thesis.
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 #### CashierData, MonthlyMilkProduction
-1. Just go to the DGW folder, open `DGW.ipynb` in a Jupyter Notebook, import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` and let it run.
+1. Just go to the DGW folder
+2. Open `DGW.ipynb` in a Jupyter Notebook
+3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction`
+4. Let it run.
 
     ```
     run_DTW(n_trials=50, database_name="default", *shift_numbers)
@@ -46,29 +49,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-3. Return to step 1.
-4. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_MonthlyMilkProduction.ipynb` in a Jupyter Notebook.
-
-    ```
-    test_samples(database_name="default", print_data=True)
-    ```
-
-    **Arguments**
-
-    **database_name** : *str*
-    > Name of the project that you want to evaluate.
-
-    **print_data** : *bool*
-    > Weather to print the test and fake dataset or not.
-
-    **Returns**
-
-    *Plots and texts in sdtout*
-    > Visual and statistical evaluation of the fake data compared to the real test data.
-
 5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 4. 
+6. Return to step 1.
 #### Schachtschneider
 1. Open a Terminal and navigate to the directory in which DGW_schachtschneider.py can be found.
 2. Run the optimization of DGW with the Schachtschneider dataset.
@@ -94,7 +76,11 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2. 
-5. To test the similarity of the fake data to the real data just run the `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+####Test the similarity of the fake data to the real data of DGW
+1. Just go to the DGW folder.
+2. Open the `test_samples.ipynb` or in a Jupyter Notebook.
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction` or `from evaluate_schachtschneider`
+4. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -103,7 +89,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     **Arguments**
 
     **database_name** : *str*
-    > Name that the project should have.
+    > Name of the project that you want to evaluate.
 
     **print_data** : *bool*
     > Weather to print the test and fake dataset or not.
@@ -113,8 +99,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-7. Return to step 4. 
+5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+6. Return to step 4. 
 ### CTGAN
 1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found
 2. Run the optimization of CTGAN with
