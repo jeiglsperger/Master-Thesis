@@ -78,6 +78,7 @@ def real_data_loading(database_name, *shift_numbers):
     
     eval_enc = OneHotEncoder(sparse=False)
     encoded_dataset = eval_enc.fit_transform(dataset[["public_holiday", "weekday"]])
+    num_columns_cat_eval = np.shape(encoded_dataset)[1]
     encoded_dataset = pd.DataFrame(encoded_dataset, index=dataset.index)
     dataset = pd.concat([dataset, encoded_dataset], axis=1).drop(["public_holiday", "weekday"], axis=1)
     joblib.dump(eval_enc, "eval_enc_" + database_name + ".gz")
@@ -107,10 +108,10 @@ def real_data_loading(database_name, *shift_numbers):
     labels = dataset[:,0]
     dataset = dataset[:,0:]
         
-    return dataset_train, labels_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers
+    return dataset_train, labels_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers
 
 
-def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, database_name, *shift_numbers):
+def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers):
     """
     Postprocesses synthesized data
     :param eval_or_opt: "opt" for the optimization loop, "eval" for training the optimized model
@@ -133,12 +134,22 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, data
         generated_data = generated_data[:,:len(shift_numbers) * -805]
 
     # reverse one-hot-encoding
-    enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")
-    to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat:np.shape(generated_data)[1]]
-    inverse_transformed_data = []
-    for i in range(np.shape(generated_data)[0]):
-        generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat]
-        inverse_transformed_data.append(np.concatenate(([generated_data_no_cat], enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))      
+    if eval_or_opt == "opt":
+        enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
+        to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat:np.shape(generated_data)[1]]
+        inverse_transformed_data = []
+        for i in range(np.shape(generated_data)[0]):
+            generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat]
+            inverse_transformed_data.append(np.concatenate(([generated_data_no_cat], enc.inverse_transform([to_inverse_transform_data[i]])),
+                                                           axis=None))     
+    else:
+        enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
+        to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat_eval:np.shape(generated_data)[1]]
+        inverse_transformed_data = []
+        for i in range(np.shape(generated_data)[0]):
+            generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat_eval]
+            inverse_transformed_data.append(np.concatenate(([generated_data_no_cat], enc.inverse_transform([to_inverse_transform_data[i]])),
+                                                           axis=None))         
     inverse_transformed_data = np.array(inverse_transformed_data)
                 
     # transform to a pandas dataframe
