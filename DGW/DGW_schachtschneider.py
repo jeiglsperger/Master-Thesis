@@ -20,16 +20,16 @@ def prepare_train_data(database_name, *shift_numbers):
     :return: training data, training labels, number of categorical columns, validation data, data to train the optimized model, 
     labels to trian the optimized model, column names, number of days for the shifted dataset
     """
-    x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers = real_data_loading(database_name, *shift_numbers)
+    x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers = real_data_loading(database_name, *shift_numbers)
 
     # reshape as DGW only accepts 3-dimensional data
     x_train = x_train.reshape((x_train.shape[0], x_train.shape[1], 1))
     dataset = dataset.reshape((dataset.shape[0], dataset.shape[1], 1))
     
-    return x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers
+    return x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers
 
 
-def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers):
+def objective(trial, x_train, y_train, columns, num_columns_cat, num_columns_cat_eval, dataset_val, database_name, *shift_numbers):
     """
     Objective function for hyperparameter optimization with optuna
     :param trail: current optimization trial
@@ -53,7 +53,7 @@ def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, da
     generated_data = aug.discriminative_guided_warp(x_train, y_train, batch_size=batch_size, slope_constraint=slope_constraint, use_window=use_window, dtw_type=dtw_type, use_variable_slice=use_variable_slice)
 
     # postprocessing
-    fake_data = postprocess_data("opt", generated_data, columns, num_columns_cat, database_name, *shift_numbers)
+    fake_data = postprocess_data("opt", generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers)
 
     # calculate score
     scores = evaluate(fake_data, dataset_val)
@@ -69,13 +69,13 @@ def run_DTW(n_trials, database_name, *shift_numbers):
     :param shift_numbers: number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative
     """
     # load and prepare data
-    x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers = prepare_train_data(database_name, 
+    x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers = prepare_train_data(database_name, 
                                                                                                                  *shift_numbers)
     
     # optimize hyperparameters
     study = optuna.create_study(storage=optuna.storages.RDBStorage("sqlite:///" + database_name + ".db"), 
                                 study_name = database_name + "_study", direction="maximize", load_if_exists=True)
-    study.optimize(lambda trial: objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers),
+    study.optimize(lambda trial: objective(trial, x_train, y_train, columns, num_columns_cat, num_columns_cat_eval, dataset_val, database_name, *shift_numbers),
                    n_trials)
 
     # save performance parameters
@@ -105,7 +105,7 @@ def run_DTW(n_trials, database_name, *shift_numbers):
     hlp.plot1d(dataset[0], generated_data[0])
 
     # postprocessing
-    fake_data = postprocess_data("eval", generated_data, columns, num_columns_cat, database_name, *shift_numbers)
+    fake_data = postprocess_data("eval", generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers)
     fake_data.to_csv('fake_data_' + database_name + '.csv', index=False)
     
     
