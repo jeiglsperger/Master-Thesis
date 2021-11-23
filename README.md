@@ -27,7 +27,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 #### CashierData, MonthlyMilkProduction
 1. Just go to the DGW folder
 2. Open `DGW.ipynb` in a Jupyter Notebook
-3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction`
+3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` or `from DGW_TouristsIndia`
 4. Let it run.
 
     ```
@@ -81,7 +81,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 #### Test the similarity of the fake data to the real data of DGW
 1. Just go to the DGW folder.
 2. Open the `test_samples.ipynb` or in a Jupyter Notebook.
-3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction` or `from evaluate_schachtschneider`
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
 4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
 5. Let it run.
 
