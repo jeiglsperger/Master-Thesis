@@ -14,6 +14,7 @@ from sdv.evaluation import evaluate
 from table_evaluator import load_data, TableEvaluator
 import argparse
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 warnings.filterwarnings("ignore")
 
