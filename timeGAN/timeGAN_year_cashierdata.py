@@ -161,6 +161,7 @@ def run_TimeGAN(seq_len, num_samples, n_trials, database_name, *shift_numbers):
 
     # generate data and stop time for this task
     timegan = joblib.load(database_name + '.gz')
+    dataset = cut_data(dataset, seq_len)
     start_time = time.time()
     generated_data = timegan(dataset, objective.parameters)
     performance.write(str("--- %s minutes ---" % ((time.time() - start_time) / 60)))
