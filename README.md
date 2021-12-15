@@ -24,7 +24,8 @@ All codes used for my master thesis.
 
 ### Discriminative Guided Warping (DGW)
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
-#### CashierData, MonthlyMilkProduction
+
+#### CashierData, MonthlyMilkProduction, QuarterlyTouristsIndia
 1. Just go to the DGW folder
 2. Open `DGW.ipynb` in a Jupyter Notebook
 3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` or `from DGW_TouristsIndia`
@@ -82,8 +83,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the DGW folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
-4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
-5. Let it run.
+4. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -159,8 +159,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the CTGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
-4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
-5. Let it run.
+4. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -179,8 +178,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-7. Return to step 5. 
+5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+6. Return to step 5. 
 ##### Show the optuna optimization plots
 1. Insert the right study name and storage.
 2. Run the cell.
@@ -256,8 +255,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the timeGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
-4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
-5. Let it run.
+4. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -276,8 +274,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-7. Return to step 5. 
+5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+6. Return to step 5. 
 ##### Show the optuna optimization plots
 1. Insert the right study name and storage.
 2. Run the cell.
