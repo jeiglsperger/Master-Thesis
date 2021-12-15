@@ -26,9 +26,9 @@ All codes used for my master thesis.
 DGW runs on two different ways for the two datasets. CashierData in a Jupyter Notebook, and Schachtschneider via command line, as the computation duration is too long to be executed in an open notebook.
 
 #### CashierData, MonthlyMilkProduction, QuarterlyTouristsIndia
-1. Just go to the DGW folder
-2. Open `DGW.ipynb` in a Jupyter Notebook
-3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` or `from DGW_TouristsIndia`
+1. Just go to the DGW folder.
+2. Open `DGW.ipynb` in a Jupyter Notebook.
+3. Import either `from DGW_cashierdata` or `from DGW_MonthlyMilkProduction` or `from DGW_TouristsIndia`.
 4. Let it run.
 
     ```
@@ -82,7 +82,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 #### Test the similarity of the fake data to the real data of DGW and visualize the optuna optimization
 1. Just go to the DGW folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
-3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`.
 4. Let it run.
 
     ```
@@ -109,8 +109,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 2. Run the cell.
  
 ### CTGAN
-1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found
-2. Run the optimization of CTGAN with
+1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found.
+2. Run the optimization of CTGAN with.
 
     ```
     python3 CTGAN_cashierdata.py -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
@@ -152,13 +152,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2.
 
 #### Test the similarity of the fake data to the real data of CTGAN and visualize the optuna optimization
 1. Just go to the CTGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
-3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`.
 4. Let it run.
 
     ```
@@ -185,7 +185,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 2. Run the cell.
 
 ### timeGAN
-1. Open a Terminal and navigate to the directory in which `timeGAN_opt_seq_len_cashierdata.py`, `timeGAN_year_cashierdata.py`, `timeGAN_opt_seq_len_schachtschneider.py` and `timeGAN_year_schachtschneider.py` can be found
+1. Open a Terminal and navigate to the directory in which `timeGAN_opt_seq_len_cashierdata.py`, `timeGAN_year_cashierdata.py`, `timeGAN_opt_seq_len_schachtschneider.py` and `timeGAN_year_schachtschneider.py` can be found.
 2. Run the optimization of timeGAN with
 
     ```
@@ -248,13 +248,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
+3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2. 
 
 #### Test the similarity of the fake data to the real data of timeGAN and visualize the optuna optimization
 1. Just go to the timeGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
-3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`.
 4. Let it run.
 
     ```
