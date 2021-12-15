@@ -78,9 +78,9 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 4. Return to step 2. 
 
-#### Test the similarity of the fake data to the real data of DGW
+#### Test the similarity of the fake data to the real data of DGW and visualize the optuna optimization
 1. Just go to the DGW folder.
-2. Open the `test_samples.ipynb` or in a Jupyter Notebook.
+2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
 4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
 5. Let it run.
@@ -103,7 +103,11 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
 5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 4. 
+6. Return to step 5.
+##### Show the optuna optimization plots
+1. Insert the right study name and storage.
+2. Run the cell.
+ 
 ### CTGAN
 1. Open a Terminal and navigate to the directory in which CTGAN_cashierdata.py and CTGAN_schachtschneider.py can be found
 2. Run the optimization of CTGAN with
@@ -123,6 +127,12 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     ```
     python3 CTGAN_MonthlyMilkProduction.py  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
     ```    
+    
+    or 
+    
+    ```
+    python3 CTGAN_TouristsIndia.py  -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
+    ```  
     
     **Arguments**
     
@@ -144,7 +154,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2.
-5. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+
+#### Test the similarity of the fake data to the real data of CTGAN and visualize the optuna optimization
+1. Just go to the CTGAN folder.
+2. Open the `test_samples.ipynb` in a Jupyter Notebook.
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
+4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
+5. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -153,7 +169,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     **Arguments**
 
     **database_name** : *str*
-    > Name that the project should have.
+    > Name of the project that you want to evaluate.
 
     **print_data** : *bool*
     > Weather to print the test and fake dataset or not.
@@ -164,7 +180,11 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
 6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-7. Return to step 5.  
+7. Return to step 5. 
+##### Show the optuna optimization plots
+1. Insert the right study name and storage.
+2. Run the cell.
+
 ### timeGAN
 1. Open a Terminal and navigate to the directory in which `timeGAN_opt_seq_len_cashierdata.py`, `timeGAN_year_cashierdata.py`, `timeGAN_opt_seq_len_schachtschneider.py` and `timeGAN_year_schachtschneider.py` can be found
 2. Run the optimization of timeGAN with
@@ -231,7 +251,13 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     > Fake data in a Dataframe and performance measures.
 3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`
 4. Return to step 2. 
-5. To test the similarity of the fake data to the real data just run the `test_samples_cashierdata.ipynb` or `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
+
+#### Test the similarity of the fake data to the real data of timeGAN and visualize the optuna optimization
+1. Just go to the timeGAN folder.
+2. Open the `test_samples.ipynb` in a Jupyter Notebook.
+3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`
+4. Choose the right test data file in `test, fake = load_data('test_data_XXX.csv', 'fake_data_' + database_name + '.csv')`
+5. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -240,7 +266,7 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     **Arguments**
 
     **database_name** : *str*
-    > Name that the project should have.
+    > Name of the project that you want to evaluate.
 
     **print_data** : *bool*
     > Weather to print the test and fake dataset or not.
@@ -252,6 +278,10 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 
 6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 7. Return to step 5. 
+##### Show the optuna optimization plots
+1. Insert the right study name and storage.
+2. Run the cell.
+
 ## Contribution
 All codes in this repository were written by myself with exeption of the following scripts which were written by the authors of corresponing paper:
 ### DataIngestSchachtschneider
