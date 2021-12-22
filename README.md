@@ -83,7 +83,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the DGW folder.
 2. Open the `test_samples.ipynb` or `test_samples_schachtschneider.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia`. For `test_samples_schachtschneider.ipynb` the import is already the right one.
-4. Let it run.
+4. Select the desired target column for the table evaluator.
+5. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -102,8 +103,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 5.
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5.
 ##### Show the optuna optimization plots for `test_samples_schachtschneider.ipynb`
 1. Insert the right study name and storage.
 2. Run the cell.
@@ -159,7 +160,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the CTGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`.
-4. Let it run.
+4. Select the desired target column for the table evaluator.
+5. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -178,8 +180,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 5. 
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5. 
 ##### Show the optuna optimization plots
 1. Insert the right study name and storage.
 2. Run the cell.
@@ -255,7 +257,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
 1. Just go to the timeGAN folder.
 2. Open the `test_samples.ipynb` in a Jupyter Notebook.
 3. Import either `from evaluate_cashierdata` or `from evaluate_MonthlyMilkProduction`  or `from evaluate_TouristsIndia` or `from evaluate_schachtschneider`.
-4. Let it run.
+4. Select the desired target column for the table evaluator.
+5. Let it run.
 
     ```
     test_samples(database_name="default", print_data=True)
@@ -274,8 +277,8 @@ DGW runs on two different ways for the two datasets. CashierData in a Jupyter No
     *Plots and texts in sdtout*
     > Visual and statistical evaluation of the fake data compared to the real test data.
 
-5. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-6. Return to step 5. 
+6. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+7. Return to step 5. 
 ##### Show the optuna optimization plots
 1. Insert the right study name and storage.
 2. Run the cell.
