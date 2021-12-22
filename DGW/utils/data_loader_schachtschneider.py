@@ -131,7 +131,10 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, num_
     
     # delete shifted data
     if shift_numbers != (0,):
-        generated_data = generated_data[:,:len(shift_numbers) * -805]
+        if eval_or_opt == "opt":
+            generated_data = generated_data[:,:,:len(shift_numbers) * -804]
+        else:
+            generated_data = generated_data[:,:,:len(shift_numbers) * -805]
 
     # reverse one-hot-encoding
     if eval_or_opt == "opt":
