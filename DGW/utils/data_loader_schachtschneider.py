@@ -69,7 +69,7 @@ def real_data_loading(database_name, *shift_numbers):
     columns = list(dataset_train.columns)
 
     # one-hot-encoding
-    opt_enc = OneHotEncoder(sparse=False)
+    opt_enc = OneHotEncoder(sparse=False, handle_unknown='ignore')
     encoded_dataset = opt_enc.fit_transform(dataset_train[["public_holiday", "weekday"]])
     num_columns_cat = np.shape(encoded_dataset)[1]
     encoded_dataset = pd.DataFrame(encoded_dataset, index=dataset_train.index)
