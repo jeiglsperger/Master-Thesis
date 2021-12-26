@@ -31,11 +31,14 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, seq_
     """       
     # delete shifted data
     if shift_numbers != (0,):
-        generated_data = generated_data[:,:,:len(shift_numbers) * -805]
+        generated_data = generated_data[:,:,:len(shift_numbers) * -804]
         
     # reverse one-hot-encoding   
     enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")
-    to_inverse_transform_data = generated_data[:,:,np.shape(generated_data)[2]-num_columns_cat:np.shape(generated_data)[2]]
+    if eval_or_opt == "opt":
+        to_inverse_transform_data = generated_data[:,:,np.shape(generated_data)[2]-num_columns_cat:np.shape(generated_data)[2]]
+    else:
+        to_inverse_transform_data = generated_data[:,:,np.shape(generated_data)[2]-(num_columns_cat+1):np.shape(generated_data)[2]]
     inverse_transformed_data = []
     for i in range(np.shape(generated_data)[0]):
         generated_data_no_cat = generated_data[:,:,0:np.shape(generated_data)[2]-num_columns_cat]
