@@ -12,7 +12,7 @@ All codes used for my master thesis.
 1. It is possible to download and locally run `DataIngest_Schachtschneider.py` in PyCharm for example.
 2. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
 3. Return to step 1.
-4. Open a Terminal and navigate to the directory in which add_externals.py can be found.
+4. Open a Terminal and navigate to the directory in which `add_externals.py` can be found.
 5. Add external data with
 
     ```
@@ -23,8 +23,9 @@ All codes used for my master thesis.
 7. Return to step 5.
 
 ### Discriminative Guided Warping (DGW)
-1. Open a Terminal and navigate to the directory in which DGW.py can be found.
-2. Run the optimization of DGW.
+1. Open a Terminal and navigate to the directory in which `DGW.py` can be found.
+2. Open `DGW.py` with `vim DGW.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
+3. Run the optimization of DGW.
 
     ```
     python3 DGW.py -data CashierData.csv -n_trials 50 -database_name DGW_default -shift_numbers 0
@@ -48,8 +49,8 @@ All codes used for my master thesis.
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-4. Return to step 2. 
+4. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+5. Return to step 2. 
 
 #### Test the similarity of the fake data to the real data of DGW and visualize the optuna optimization
 1. Just go to the DGW folder.
@@ -81,7 +82,8 @@ All codes used for my master thesis.
  
 ### CTGAN
 1. Open a Terminal and navigate to the directory in which CTGAN.py can be found.
-2. Run the optimization of CTGAN with.
+2. 2. Open `CTGAN.py` with `vim CTGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
+3. Run the optimization of CTGAN with.
 
     ```
     python3 CTGAN.py -data CashierData.csv -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
@@ -108,8 +110,8 @@ All codes used for my master thesis.
     
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-4. Return to step 2.
+4. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+5. Return to step 2.
 
 #### Test the similarity of the fake data to the real data of CTGAN and visualize the optuna optimization
 1. Just go to the CTGAN folder.
@@ -144,7 +146,8 @@ All codes used for my master thesis.
 
 ### timeGAN
 1. Open a Terminal and navigate to the directory in which `timeGAN.py` can be found.
-2. Run the optimization of timeGAN with
+2. 2. Open `timeGAN.py` with `vim timeGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
+3. Run the optimization of timeGAN with
 
     ```
     python3 timeGAN.py -data CashierData.csv -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
@@ -172,8 +175,8 @@ All codes used for my master thesis.
     *Dataframe and .txt-file*
     > Fake data in a Dataframe and performance measures.
 
-3. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
-4. Return to step 2. 
+4. If `ModuleNotFoundError: No module named 'package'` occurs, install these missing packages with `pip3 install package`.
+5. Return to step 2. 
 
 #### Test the similarity of the fake data to the real data of timeGAN and visualize the optuna optimization
 1. Just go to the timeGAN folder.
