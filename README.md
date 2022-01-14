@@ -82,7 +82,7 @@ All codes used for my master thesis.
  
 ### CTGAN
 1. Open a Terminal and navigate to the directory in which CTGAN.py can be found.
-2. 2. Open `CTGAN.py` with `vim CTGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
+2. Open `CTGAN.py` with `vim CTGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
 3. Run the optimization of CTGAN with.
 
     ```
@@ -146,8 +146,8 @@ All codes used for my master thesis.
 
 ### timeGAN
 1. Open a Terminal and navigate to the directory in which `timeGAN.py` can be found.
-2. 2. Open `timeGAN.py` with `vim timeGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
-3. Run the optimization of timeGAN with
+2. Open `timeGAN.py` with `vim timeGAN.py` and adjust the desired hyperparameters for the optimization in the `objective` function.
+5. Run the optimization of timeGAN with
 
     ```
     python3 timeGAN_je.py -data CashierData.csv -num_samples 500 -n_trials 100 -database_name CTGAN_default -shift_numbers 0
