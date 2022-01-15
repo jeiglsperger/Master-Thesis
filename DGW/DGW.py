@@ -197,10 +197,7 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, data
             generated_data = generated_data[:,:len(shift_numbers) * -44]
     if data == "Schachtschneider_externals_cut.csv":
         if shift_numbers != (0,):
-            if eval_or_opt == "opt":
-                generated_data = generated_data[:,:len(shift_numbers) * -804]
-            else:
-                generated_data = generated_data[:,:len(shift_numbers) * -805]
+            generated_data = generated_data[:,:len(shift_numbers) * -804]
     if data == "Public_MonthlyMilkProduction.csv":
         if shift_numbers != (0,):
             generated_data = generated_data[:,:len(shift_numbers) * -1]
@@ -299,7 +296,7 @@ def run_DTW(data, n_trials=50, database_name="default", *shift_numbers):
     
     # optimize hyperparameters
     study = optuna.create_study(storage=optuna.storages.RDBStorage("sqlite:///" + database_name + ".db"), 
-                                study_name = database_name + "_study", direction="maximize", load_if_exists=True
+                                study_name = database_name + "_study", direction="maximize", load_if_exists=True)
     study.optimize(lambda trial: objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers),
                    n_trials)
 
