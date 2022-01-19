@@ -84,9 +84,10 @@ def shift_dataset(preprocessed_dataset, *shift_numbers):
     return preprocessed_dataset
 
 
-def real_data_loading(database_name, *shift_numbers):
+def real_data_loading(data, database_name, *shift_numbers):
     """
     Loads and preprocessed the dataset
+    :param data: define which dataset should be used
     :param database_name: name that the project should have
     :param shift_numbers: number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative
     :return: training data, training labels, number of categorical columns, validation data, data to train the optimized model, 
@@ -119,8 +120,7 @@ def real_data_loading(database_name, *shift_numbers):
         encoded_dataset = opt_enc.fit_transform(dataset_train[["public_holiday", "school_holiday", "quarter", "weekday"]])
         num_columns_cat = np.shape(encoded_dataset)[1]
         encoded_dataset = pd.DataFrame(encoded_dataset, index=dataset_train.index)
-        dataset_train = pd.concat([dataset_train, encoded_dataset], axis=1).drop(["public_holiday", "school_holiday", "quarter", "weekday"], 
-                                                                                 axis=1)
+        dataset_train = pd.concat([dataset_train, encoded_dataset], axis=1).drop(["public_holiday", "school_holiday", "quarter", "weekday"], axis=1)
         joblib.dump(opt_enc, "opt_enc_" + database_name + ".gz")
 
         eval_enc = OneHotEncoder(sparse=False, handle_unknown='ignore')
@@ -170,10 +170,10 @@ def real_data_loading(database_name, *shift_numbers):
     labels = dataset[:,0]
     dataset = dataset[:,0:]
          
-    return dataset_train, labels_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers
+    return dataset_train, labels_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers
 
 
-def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, database_name, *shift_numbers):
+def postprocess_data(data, eval_or_opt, generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers):
     """
     Postprocesses synthesized data
     :param eval_or_opt: "opt" for the optimization loop, "eval" for training the optimized model
@@ -197,46 +197,53 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, data
             generated_data = generated_data[:,:len(shift_numbers) * -44]
     if data == "Schachtschneider_externals_cut.csv":
         if shift_numbers != (0,):
-            generated_data = generated_data[:,:len(shift_numbers) * -804]
+            if eval_or_opt == "opt":
+                generated_data = generated_data[:,:len(shift_numbers) * -804]
+            else:
+                generated_data = generated_data[:,:len(shift_numbers) * -805]
     if data == "Public_MonthlyMilkProduction.csv":
         if shift_numbers != (0,):
             generated_data = generated_data[:,:len(shift_numbers) * -1]
+        generated_data_df = pd.DataFrame(data=generated_data, columns=columns)
     if data == "Public_QuarterlyTouristsIndia.csv":
         if shift_numbers != (0,):
             generated_data = generated_data[:,:len(shift_numbers) * -42]
+        generated_data_df = pd.DataFrame(data=generated_data, columns=columns)
     
 
     # reverse one-hot-encoding
-    if data == "CashierData.csv" or data == "Schachtschneider_externals_cut.csv":
-        if data == "Schachtschneider_external_cut.csv":
-            if eval_or_opt == "opt":
-                enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
-                to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat:np.shape(generated_data)[1]]
-                inverse_transformed_data = []
-                for i in range(np.shape(generated_data)[0]):
-                    generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat]
-                    inverse_transformed_data.append(np.concatenate(([generated_data_no_cat],
-                                                                    enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))     
-            else:
-                enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
-                to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat_eval:np.shape(generated_data)[1]]
-                inverse_transformed_data = []
-                for i in range(np.shape(generated_data)[0]):
-                    generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat_eval]
-                    inverse_transformed_data.append(np.concatenate(([generated_data_no_cat],
-                                                                    enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))  
-        else:
-            enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")
+    if data == "Schachtschneider_externals_cut.csv":
+        if eval_or_opt == "opt":
+            enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
             to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat:np.shape(generated_data)[1]]
             inverse_transformed_data = []
             for i in range(np.shape(generated_data)[0]):
                 generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat]
-                inverse_transformed_data.append(np.concatenate(([generated_data_no_cat], 
-                                                                enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))       
+                inverse_transformed_data.append(np.concatenate(([generated_data_no_cat],
+                                                                enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))     
+        else:
+            enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")  
+            to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat_eval:np.shape(generated_data)[1]]
+            inverse_transformed_data = []
+            for i in range(np.shape(generated_data)[0]):
+                generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat_eval]
+                inverse_transformed_data.append(np.concatenate(([generated_data_no_cat],
+                                                                enc.inverse_transform([to_inverse_transform_data[i]])), axis=None))  
         generated_data = np.array(inverse_transformed_data)
-                
-    # transform to a pandas dataframe
-    generated_data_df = pd.DataFrame(data=generated_data, columns=columns)
+        generated_data_df = pd.DataFrame(data=generated_data, columns=columns)
+    if data == "CashierData.csv":
+        enc = joblib.load(eval_or_opt + "_enc_" + database_name + ".gz")
+        to_inverse_transform_data = generated_data[:,np.shape(generated_data)[1]-num_columns_cat:np.shape(generated_data)[1]]
+        inverse_transformed_data = []
+        for i in range(np.shape(generated_data)[0]):
+            generated_data_no_cat = generated_data[i,0:np.shape(generated_data)[1]-num_columns_cat]
+            print(to_inverse_transform_data)
+            inverse_transformed_data.append(np.concatenate(([generated_data_no_cat], 
+                                                       enc.inverse_transform([to_inverse_transform_data[i]])),
+                                                           axis=None))       
+        generated_data = np.array(inverse_transformed_data)
+        generated_data_df = pd.DataFrame(data=generated_data, columns=columns)
+               
     
     # insert columns again that can be derived from others
     if data == "CashierData.csv" or data == "Schachtschneider_externals_cut.csv":
@@ -254,7 +261,7 @@ def postprocess_data(eval_or_opt, generated_data, columns, num_columns_cat, data
     return fake_data
 
 
-def prepare_train_data(database_name, *shift_numbers):
+def prepare_train_data(data, database_name, *shift_numbers):
     """
     Prepares the training data
     :param database_name: name of the project
@@ -262,16 +269,16 @@ def prepare_train_data(database_name, *shift_numbers):
     :return: training data, training labels, number of categorical columns, validation data, data to train the optimized model, 
     labels to trian the optimized model, column names, number of days for the shifted dataset
     """
-    x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers = real_data_loading(database_name, *shift_numbers)
+    x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers = real_data_loading(data, database_name, *shift_numbers)
 
     # reshape as DGW only accepts 3-dimensional data
     x_train = x_train.reshape((x_train.shape[0], x_train.shape[1], 1))
     dataset = dataset.reshape((dataset.shape[0], dataset.shape[1], 1))
     
-    return x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers
+    return x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers
 
 
-def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers):
+def objective(trial, data, x_train, y_train, columns, num_columns_cat, num_columns_cat_eval, dataset_val, database_name, *shift_numbers):
     """
     Objective function for hyperparameter optimization with optuna
     :param trail: current optimization trial
@@ -295,7 +302,7 @@ def objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, da
     generated_data = aug.discriminative_guided_warp(x_train, y_train, batch_size=batch_size, slope_constraint=slope_constraint, use_window=use_window, dtw_type=dtw_type, use_variable_slice=use_variable_slice)
 
     # postprocessing
-    fake_data = postprocess_data("opt", generated_data, columns, num_columns_cat, database_name, *shift_numbers)
+    fake_data = postprocess_data(data, "opt", generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers)
 
     # calculate score 
     scores = evaluate(fake_data, dataset_val)
@@ -311,12 +318,12 @@ def run_DTW(data, n_trials=50, database_name="default", *shift_numbers):
     :param shift_numbers: number of days for which the dataset should be shifted. Can be multiple days as well as positive and negative
     """
     # load and prepare data
-    x_train, y_train, num_columns_cat, dataset_val, dataset, labels, columns, shift_numbers = prepare_train_data(database_name, *shift_numbers)
+    x_train, y_train, num_columns_cat, num_columns_cat_eval, dataset_val, dataset, labels, columns, shift_numbers = prepare_train_data(data, database_name, *shift_numbers)
     
     # optimize hyperparameters
     study = optuna.create_study(storage=optuna.storages.RDBStorage("sqlite:///" + database_name + ".db"), 
                                 study_name = database_name + "_study", direction="maximize", load_if_exists=True)
-    study.optimize(lambda trial: objective(trial, x_train, y_train, columns, num_columns_cat, dataset_val, database_name, *shift_numbers),
+    study.optimize(lambda trial: objective(trial, data, x_train, y_train, columns, num_columns_cat, num_columns_cat_eval, dataset_val, database_name, *shift_numbers),
                    n_trials)
 
     # save performance parameters
@@ -338,7 +345,7 @@ def run_DTW(data, n_trials=50, database_name="default", *shift_numbers):
     hlp.plot1d(dataset[0], generated_data[0])
 
     # postprocessing
-    fake_data = postprocess_data("eval", generated_data, columns, num_columns_cat, database_name, *shift_numbers)
+    fake_data = postprocess_data(data, "eval", generated_data, columns, num_columns_cat, num_columns_cat_eval, database_name, *shift_numbers)
     fake_data.to_csv('fake_data_' + database_name + '.csv', index=False)
     
     
