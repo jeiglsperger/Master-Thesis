@@ -294,7 +294,7 @@ def objective(trial, dataset_train, dataset_val, num_samples, columns, num_colum
     # hyperparameters
     module = trial.suggest_categorical("module", ["gru", "lstm", "lstmLN"])
     hidden_dim = trial.suggest_categorical("hidden_dim", [6, 12, 24])
-    batch_size = trial.suggest_categorical("batch_size", [2, 4, 8])
+    batch_size = trial.suggest_categorical("batch_size", [1, 2, 4])
     num_layer = trial.suggest_int("num_layer", 3, 6, 1)
     iterations = trial.suggest_categorical("iterations", [1, 10, 100])
     seq_len = trial.suggest_categorical("seq_len", [5, 10, 20])
