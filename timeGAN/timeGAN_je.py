@@ -257,15 +257,18 @@ def postprocess_data(data, eval_or_opt, generated_data, columns, num_columns_cat
     generated_data_df = pd.DataFrame(data=conditioned_dataset, columns=columns)
     
     # insert columns again that can be derived from others
-    if data == "CashierData.csv" or data == "Schachtschneider_externals_cut.csv":
+    if data == "CashierData.csv":
         total_sun_dur_h_fake = (generated_data_df["mean_sun_dur_min"] / 60) * 24
         generated_data_df.insert(11, 'total_sun_dur_h', total_sun_dur_h_fake)
         total_prec_height_mm_fake = generated_data_df["mean_prec_height_mm"] * 24
         generated_data_df.insert(9, 'total_prec_height_mm', total_prec_height_mm_fake)
-        
-    if data == "CashierData.csv":
         total_prec_flag_fake = generated_data_df['mean_prec_flag'].apply(lambda x: 'True' if x > 0 else 'False')
         generated_data_df.insert(11, 'total_prec_flag', total_prec_flag_fake)
+    if data == "Schachtschneider_externals_cut.csv":
+        total_prec_height_mm_fake = generated_data_df["mean_prec_height_mm"] * 24
+        generated_data_df.insert(787, 'total_prec_height_mm', total_prec_height_mm_fake) 
+        total_sun_dur_h_fake = (generated_data_df["mean_sun_dur_min"] / 60) * 24
+        generated_data_df.insert(789, 'total_sun_dur_h', total_sun_dur_h_fake) 
     
     
     fake_data = generated_data_df
